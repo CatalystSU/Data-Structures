@@ -1,5 +1,5 @@
 # Data-Structures
-Personal Implementation of various data structures in Java and Python
+Personal Implementation of various data structures in Java and (maybe) Python
 
 ### Interesting finds
 #### Vector vs ArrayList
