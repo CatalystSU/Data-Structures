@@ -1,5 +1,5 @@
 public class Node {
-    final int value;
+    int value;
     Node Next;
     public Node(int value, Node next) {
         this.value = value;

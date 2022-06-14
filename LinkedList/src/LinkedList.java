@@ -30,7 +30,7 @@ public class LinkedList {
     }
 
     // Insert at beginning
-    public void insertBegin(int value) {
+    public void insertFirst(int value) {
         head = new Node(value, head);
         nodes++;
     }
@@ -73,29 +73,76 @@ public class LinkedList {
             }
             currentNode.Next = new Node(value, currentNode.Next);
         }
+        nodes++;
     }
 
     // Delete at end
-    public int delete() {
-        if (head.Next == null) {
-            System.out.println("Delete");
+    public void deleteLast() {
+        if (head.Next == null)
+        {
+            head = null;
+        } else
+        {
+            Node currentNode = head;
+            while (currentNode.Next.Next != null)
+            {
+                currentNode = currentNode.Next;
+            }
+            currentNode.Next = null;
+            System.out.println(currentNode.value);
         }
-
-        return 0;
+        nodes--;
     }
 
     // Delete at beginning
-
-    // Delete at position
-
-    // Delete at value
+    public void deleteFirst() {
+        if (head.Next == null)
+        {
+            head = null;
+        } else
+        {
+            head = head.Next;
+        }
+        nodes--;
+    }
 
     // Search
-
-    // Traversal
+    public boolean search(int value) {
+        Node currentNode = head;
+        while (currentNode.Next != null)
+        {
+            if (currentNode.value == value)
+            {
+                return true;
+            }
+            currentNode = currentNode.Next;
+        }
+        return currentNode.value == value;
+    }
 
     // Sort
-
+    public void sort() {
+        Node currentNode = head;
+        Node index;
+        if (head != null)
+        {
+            while (currentNode != null)
+            {
+                index = currentNode.Next;
+                while (index != null)
+                {
+                    if (currentNode.value > index.value)
+                    {
+                        int temp = currentNode.value;
+                        currentNode.value = index.value;
+                        index.value = temp;
+                    }
+                    index = index.Next;
+                }
+                currentNode = currentNode.Next;
+            }
+        }
+    }
 
     @Override
     public String toString() {
